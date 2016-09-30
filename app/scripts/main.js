@@ -1,6 +1,6 @@
 require([
-  "app",
-  "config"
-], function (app, config) {
+  "config",
+  "app"
+], function (config, app) {
 
 })

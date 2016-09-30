@@ -1,12 +1,13 @@
 requirejs.config({
-    baseUrl: "app/bower_components/",
+    // baseUrl: "../bower_components/",
     paths: {
-		jquery: 'jquery/dist/jquery.min',
-		backbone: 'backbone/backbone.min',
-		underscore: 'underscore/underscore-min',
-		handlebars: 'handlebars/handlebars.min',
-		bootstrap: 'bootstrap/dist/js/bootstrap.min',
-		d3: 'd3/d3.min'
+		jquery: "../bower_components/jquery/dist/jquery.min",
+		backbone: "../bower_components/backbone/backbone-min",
+		underscore: "../bower_components/underscore/underscore-min",
+		handlebars: "../bower_components/handlebars/handlebars.min",
+		bootstrap: "../bower_components/bootstrap/dist/js/bootstrap.min",
+		d3: "../bower_components/d3/d3.min",
+		View: "View/baseView"
     },
 	shim: {
         "underscore": {
@@ -23,4 +24,4 @@ requirejs.config({
 	}
 });
 
-console.log('config.js')
+console.log("Module 'config.js' ~~~ LOADED ~~~")
