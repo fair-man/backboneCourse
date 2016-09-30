@@ -1,0 +1,15 @@
+{
+  "name": "backbone",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Ruslan Tukalenko",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-mkdir": "^1.0.0"
+  }
+}
