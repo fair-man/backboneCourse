@@ -22,6 +22,8 @@
     "bootstrap": "^3.3.7",
     "handlebars": "^4.0.5",
     "d3": "^4.2.6",
-    "requirejs": "^2.3.2"
+    "requirejs": "^2.3.2",
+    "bootstrap-select": "^1.11.2",
+    "bootstrap-datepicker": "^1.6.4"
   }
 }

@@ -4,10 +4,47 @@
     <meta charset="UTF-8">
     <title>backboneCourse</title>
     <link rel="stylesheet" href="styles/css/main.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css">
     <script src="http://localhost:35729/livereload.js"></script>
     <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
 </head>
 <body>
+<div class="container">
+    <div class="row widget-block"></div>
+</div>
 
+<script id="courseTemplate" type="text/x-handlebars-template">
+    <div class="widget-header">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <span class="description">Выберите валюту:</span>
+                <select class="selectpicker">
+                    <option data-original-index="0" data-cur-id="145">Доллар США</option>
+                    <option data-original-index="1" data-cur-id="298">Российский рубль</option>
+                </select>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <span class="description">Выберите дату начала:</span>
+                <div class="input-group date" data-provide="datepicker">
+                    <input type="text" class="form-control datepicker start-date">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <span class="description">Выберите дату окончания:</span>
+                <div class="input-group date" data-provide="datepicker">
+                    <input type="text" class="form-control datepicker end-date">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="widget-content"></div>
+</script>
 </body>
 </html>
