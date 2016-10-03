@@ -41,27 +41,34 @@ define([
           var date = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
           var month = d.getMonth() < 10 ? "0" + d.getMonth() : d.getMonth();
           var year = d.getFullYear();
-          item.Date = date + "-" + month + "-" + year;
+          item.Date = ((month * 1 + 1) < 10 ? "0" + (month * 1 + 1) : month * 1 + 1 ) + "-" + date + "-" + year;
           item.x = i + k;
           k += 18;
           item.y = item.Cur_OfficialRate;
-          item.x2 = k - 4;
           self.width = item.x;
           self.length = i;
           return item
        });
 
       var date = self.model.toJSON();
-      var startDate = new Date(date.startDate);
-      var endDate = new Date(date.endDate);
-      $(".start-date").attr("placeholder", (startDate.getMonth() + 1) + "/" + startDate.getDate() + "/" + startDate.getFullYear());
-      $(".end-date").attr("placeholder", (endDate.getMonth() + 1) + "/" + endDate.getDate() + "/" + endDate.getFullYear());
+      var startDate = function () {
+        var d = date.startDate.split("-");
+        return d[1] + "/" + d[2] + "/" + d[0]
+      };
+
+      var endDate = function () {
+        var d = date.endDate.split("-");
+        return d[1] + "/" + d[2] + "/" + d[0]
+      };
+
+      $(".start-date").attr("placeholder", startDate());
+      $(".end-date").attr("placeholder", endDate());
 
       var width = self.width,
           height = 250,
           padding = 30,
           paddingForDateBottom = 75,
-          paddingForDateLeft = 4,
+          paddingForDateLeft = 5,
           circleR = 3,
           xPadding = 18, // = k
           yPadding = 0.01;
