@@ -45,6 +45,7 @@ define([
           item.x = i + k;
           k += 18;
           item.y = item.Cur_OfficialRate;
+          item.x2 = k - 4;
           self.width = item.x;
           self.length = i;
           return item
@@ -58,14 +59,20 @@ define([
 
       var width = self.width,
           height = 250,
-          padding = 30;
+          padding = 30,
+          paddingForDateBottom = 75,
+          paddingForDateLeft = 4,
+          circleR = 3,
+          xPadding = 18, // = k
+          yPadding = 0.01;
+
 
       var xScale = d3.scaleLinear()
-        .domain([d3.min(data, function (d) {return d.x - 18}), d3.max(data, function(d) { return d.x + 18; })])
+        .domain([d3.min(data, function (d) {return d.x - xPadding}), d3.max(data, function(d) { return d.x + xPadding; })])
         .range([padding, width-padding*2]);
 
       var yScale = d3.scaleLinear()
-        .domain([d3.min(data, function (d) {return d.y - 0.01}), d3.max(data, function(d) { return d.y + 0.01; })])
+        .domain([d3.min(data, function (d) {return d.y - yPadding}), d3.max(data, function(d) { return d.y + yPadding; })])
         .range([height - padding, padding]);
 
       var line = d3.line()
@@ -74,11 +81,10 @@ define([
 
       self.svg = d3.select(self.el)
         .select(".widget-content")
-        .append("svg")
-          .style("transform", "translateX("+ padding / 3 +"px)");
+        .append("svg");
 
       self.svg.attr("width", width)
-        .attr("height", height);
+        .attr("height", height + paddingForDateBottom);
 
       self.svg.append("g")
         .attr("class", "circle")
@@ -88,7 +94,7 @@ define([
         .append("circle")
         .attr("cx",function (d) {return xScale(d.x)})
         .attr("cy", function (d) {return yScale(d.y)})
-        .attr("r", 3)
+        .attr("r", circleR)
         .attr("fill", "gray")
         .style("position", "relative")
         .style("z-index", 10);
@@ -118,14 +124,14 @@ define([
 
       self.svg.append("g")
           .attr("class", "date")
-          .attr("transform", "translate(" + (padding) + "," + (height) + ")")
+          .attr("transform", "translate(" + paddingForDateLeft + "," + (height + paddingForDateBottom / 1.5) + ")")
           .selectAll("text")
           .data(data)
           .enter()
           .append("text")
-          .text(function (d) {console.log(d);return d.Date})
+          .text(function (d) {return d.Date})
           .attr('transform', function (d) {
-              return 'rotate(-90) translate(0, ' + d.x + ')';
+              return 'rotate(-90) translate(0, ' + xScale(d.x) + ')';
           })
     },
     rerender: function () {
