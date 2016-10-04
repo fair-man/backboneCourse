@@ -24,14 +24,15 @@ define([
         var curId = self.model.get("curId");
         var startDate = self.model.get("startDate");
         var endDate = self.model.get("endDate");
-        $.ajax({
-          url: "http://www.nbrb.by/API/ExRates/Rates/Dynamics/" + curId + "?startDate=" + startDate + "&endDate=" + endDate
-        }).done(function (result) {
-          self.collection.reset(result);
-          self.render();
-        }).fail(function (error) {
-            console.log(error)
-        })
+        self.collection.url = "http://www.nbrb.by/API/ExRates/Rates/Dynamics/" + curId + "?startDate=" + startDate + "&endDate=" + endDate;
+        self.collection.fetch({
+            success: function (coll, response, opts) {
+              self.render()
+            },
+            error: function (coll, error, opts) {
+              console.error(error)
+            }
+        });
     },
     render: function () {
       var self = this;
