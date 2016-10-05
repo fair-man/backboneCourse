@@ -70,7 +70,7 @@ define([
           padding = 30,
           paddingForDateBottom = 75,
           paddingForDateLeft = 5,
-          circleR = 3,
+          circleR = 4,
           xPadding = 18, // = k
           yPadding = 0.01;
 
@@ -105,9 +105,25 @@ define([
         .attr("r", circleR)
         .attr("fill", "gray")
         .style("position", "relative")
-        .style("z-index", 10);
+        .style("z-index", 10)
+        .on("mouseover", function(d) {
+          d3.select("body")
+          .append("div")
+          .attr("class", "tooltip")
+          .style("opacity", .9)
+          .html(d.Date + "<br/>" + "1$ = " + d.Cur_OfficialRate + "byn")
+          .style("left", (d3.event.pageX - 45) + "px")
+          .style("top", (d3.event.pageY - 60) + "px")
+        })
+        .on("mouseout", function(d) {
+          d3.select("body")
+            .select(".tooltip")
+            .remove()
+        });
 
       self.svg.append("path").attr("d", line(data))
+           .style("position", "relative")
+           .style("z-index", 9)
            .style("stroke", "steelblue")
            .style("fill", "none")
            .style("strike-width", 2);
