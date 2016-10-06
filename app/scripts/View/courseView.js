@@ -94,6 +94,13 @@ define([
       self.svg.attr("width", width)
         .attr("height", height + paddingForDateBottom);
 
+      self.svg.append("path").attr("d", line(data))
+        .style("position", "relative")
+        .style("z-index", 9)
+        .style("stroke", "steelblue")
+        .style("fill", "none")
+        .style("strike-width", 2);
+
       self.svg.append("g")
         .attr("class", "circle")
         .selectAll("circle")
@@ -111,8 +118,8 @@ define([
           .append("div")
           .attr("class", "tooltip")
           .style("opacity", .9)
-          .html(d.Date + "<br/>" + "1$ = " + d.Cur_OfficialRate + "byn")
-          .style("left", (d3.event.pageX - 45) + "px")
+          .html(d.Date + "<br/>" + d.Cur_OfficialRate + "byn")
+          .style("left", (d3.event.pageX - 38) + "px")
           .style("top", (d3.event.pageY - 60) + "px")
         })
         .on("mouseout", function(d) {
@@ -120,13 +127,6 @@ define([
             .select(".tooltip")
             .remove()
         });
-
-      self.svg.append("path").attr("d", line(data))
-           .style("position", "relative")
-           .style("z-index", 9)
-           .style("stroke", "steelblue")
-           .style("fill", "none")
-           .style("strike-width", 2);
 
       var xAxis = d3.axisBottom()
         .scale(xScale)

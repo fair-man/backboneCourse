@@ -6747,3 +6747,11 @@ button.close {
   padding: 5px;
   border-radius: 5px;
 }
+.tooltip:after {
+  content: "";
+  border: 7px solid transparent;
+  border-top: 7px solid #5bc0de;
+  bottom: -14px;
+  right: 30px;
+  position: absolute;
+}
