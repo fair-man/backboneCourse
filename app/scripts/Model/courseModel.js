@@ -10,11 +10,11 @@ define([
     var startDate = year + "-" + month + "-" + date;
     var endDate = year + "-" + (month * 1 + 1) + "-" + date;
     var courseModel = Backbone.Model.extend({
-            defaults: {
-                curId: "145",
-                startDate: startDate,
-                endDate: endDate
-            }
+      defaults: {
+        curId: "145",
+        startDate: startDate,
+        endDate: endDate
+      }
     });
 
     return courseModel;
