@@ -28,6 +28,7 @@ define([
     },
     ready: function () {
       var self = this;
+      self.$('.widget-content').addClass('loader');
       $('.selectpicker').selectpicker({
         style: 'btn-info',
         size: 5

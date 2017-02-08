@@ -6734,6 +6734,7 @@ button.close {
 }
 .widget-content {
   overflow: auto;
+  min-height: 330px;
 }
 .widget-footer {
   background-color: #f0ad4e;
@@ -6781,4 +6782,21 @@ button.close {
 }
 .btn-add i {
   color: #ffffff;
+}
+.widget-content.loader {
+  position: relative;
+}
+.widget-content.loader:after {
+  background-image: url(/images/hourglass.gif);
+  content: '';
+  display: block;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  z-index: 2;
 }
