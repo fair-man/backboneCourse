@@ -6773,8 +6773,8 @@ button.close {
   cursor: pointer;
   opacity: 0.9;
   position: fixed;
-  top: 50px;
-  left: 0;
+  top: 10px;
+  left: 10px;
 }
 .btn-add:hover {
   opacity: 1;
