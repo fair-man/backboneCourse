@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row widget-block"></div>
 </div>
-
+<div class="btn-add js-btn-add" title="Добавить график"><i class="glyphicon glyphicon-plus"></i></div>
 <script id="courseTemplate" type="text/x-handlebars-template">
     <div class="widget-header">
         <div class="row">
@@ -26,7 +26,7 @@
                 </select>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <span class="description">Выберите начало периода:</span>
+                <span class="description">Начало периода:</span>
                 <div class="input-group date" data-provide="datepicker">
                     <input type="text" class="form-control datepicker start-date">
                     <div class="input-group-addon">
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <span class="description">Выберите окончание периода:</span>
+                <span class="description">Окончание периода:</span>
                 <div class="input-group date" data-provide="datepicker">
                     <input type="text" class="form-control datepicker end-date">
                     <div class="input-group-addon">
@@ -46,6 +46,7 @@
         </div>
     </div>
     <div class="widget-content"></div>
+    <div class="widget-footer"></div>
 </script>
 </body>
 </html>

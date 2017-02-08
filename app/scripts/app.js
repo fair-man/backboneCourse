@@ -8,8 +8,11 @@ define([
   "bootstrapDatePicker"
 ], function ($, _, Backbone, baseView) {
   var app = {};
-  app.view = new baseView();
+  new baseView();
   console.log("Module 'app.js' ~~~ LOADED ~~~");
+  $('.btn-add').on("click", function () {
+    new baseView();
+  });
   //app.view2 = new baseView();
   return app;
 });

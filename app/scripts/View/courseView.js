@@ -62,8 +62,8 @@ define([
         return d[1] + "/" + d[2] + "/" + d[0]
       };
 
-      $(".start-date").attr("placeholder", startDate());
-      $(".end-date").attr("placeholder", endDate());
+      self.$(".start-date").attr("placeholder", startDate());
+      self.$(".end-date").attr("placeholder", endDate());
 
       var width = self.width,
           height = 250,
@@ -156,11 +156,23 @@ define([
           .text(function (d) {return d.Date})
           .attr('transform', function (d) {
               return 'rotate(-90) translate(0, ' + xScale(d.x) + ')';
-          })
+          });
+      var meanCourse = 0;
+
+      _.each(self.collection.models, function (model) {
+        meanCourse += model.toJSON().Cur_OfficialRate;
+      });
+
+      if (meanCourse > 0 && self.collection.models.length) {
+        meanCourse = Math.round((meanCourse / self.collection.models.length) * 10000) / 10000;
+      }
+
+      self.$('.widget-footer').append('<span class="mean">Средний курс за период c ' + startDate() + ' по ' + endDate() + ' = ' + meanCourse + ' byn</span>');
     },
     rerender: function () {
       var self = this;
       self.$el.find(".widget-content").find("svg").remove();
+      self.$el.find(".widget-footer").find(".mean").remove();
       self.load();
     },
     selectMoney: function (e) {

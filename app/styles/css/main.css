@@ -6735,6 +6735,11 @@ button.close {
 .widget-content {
   overflow: auto;
 }
+.widget-footer {
+  background-color: #f0ad4e;
+  height: 60px;
+  padding: 10px 5px;
+}
 .container {
   min-width: 580px;
 }
@@ -6754,4 +6759,26 @@ button.close {
   bottom: -14px;
   right: 30px;
   position: absolute;
+}
+.btn-add {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  background: #5bc0de;
+  border-radius: 50%;
+  color: red;
+  text-align: center;
+  box-shadow: 2px 3px 11px -2px black;
+  cursor: pointer;
+  opacity: 0.9;
+  position: fixed;
+  top: 50px;
+  left: 0;
+}
+.btn-add:hover {
+  opacity: 1;
+}
+.btn-add i {
+  color: #ffffff;
 }
