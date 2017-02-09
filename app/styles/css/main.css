@@ -6734,7 +6734,7 @@ button.close {
 }
 .widget-content {
   overflow: auto;
-  min-height: 330px;
+  min-height: 346px;
 }
 .widget-footer {
   background-color: #f0ad4e;
